@@ -1,8 +1,20 @@
+import { CloudIcon, ShieldCheckIcon, BoltIcon, CogIcon, XMarkIcon, PlayIcon, ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline';
+import { useState, useEffect } from 'react';
+
 export default function Home() {
+  const [showNewsletter, setShowNewsletter] = useState(false);
+  const [showCookies, setShowCookies] = useState(true);
+  const [showVideoModal, setShowVideoModal] = useState(false);
+  const [showChat, setShowChat] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowNewsletter(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="min-h-screen bg-[#0f0f11] text-white font-sans">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.4),transparent)]"></div>
         <div className="absolute w-72 h-72 bg-gradient-to-br from-indigo-500 to-purple-700 rounded-full blur-3xl opacity-20 -z-10 top-20 left-10"></div>
         <div className="absolute w-96 h-96 bg-gradient-to-br from-violet-600 to-fuchsia-600 rounded-full blur-3xl opacity-15 -z-10 bottom-10 right-10"></div>
@@ -18,23 +30,24 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a 
                 href="/signup"
-                className="bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 text-white px-8 py-3 rounded-xl shadow-lg hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(99,102,241,0.5)] drop-shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+                className="bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 text-white px-8 py-3 rounded-xl shadow-lg hover:opacity-90 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl shadow-[0_0_30px_rgba(99,102,241,0.5)] drop-shadow-[0_0_20px_rgba(99,102,241,0.4)]"
               >
                 Start Free Trial
               </a>
-              <a 
-                href="/demo"
-                className="border border-white/20 px-8 py-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-105 text-white"
+              <button 
+                onClick={() => setShowVideoModal(true)}
+                className="border border-white/20 px-8 py-3 rounded-xl hover:bg-white/10 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl text-white flex items-center gap-2"
               >
+                <PlayIcon className="w-5 h-5" />
                 Watch Demo
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-gradient-to-b from-[#0c0c0e] to-[#0f0f11] relative">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-[#0c0c0e] to-[#0f0f11] relative">
         <div className="absolute w-80 h-80 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full blur-3xl opacity-10 -z-10 top-1/2 left-1/4"></div>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -44,46 +57,56 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-30">
               <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)]">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+                <BoltIcon className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2 tracking-tight">Lightning Fast</h3>
               <p className="text-gray-400">Execute workflows in milliseconds with our optimized cloud infrastructure.</p>
             </div>
             <div className="relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-30">
               <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)]">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                </svg>
+                <ShieldCheckIcon className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2 tracking-tight">Enterprise Security</h3>
               <p className="text-gray-400">Bank-level encryption and compliance with SOC 2, GDPR, and HIPAA standards.</p>
             </div>
             <div className="relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-30">
               <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)]">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
+                <CloudIcon className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 tracking-tight">Seamless Integration</h3>
+              <h3 className="text-xl font-semibold mb-2 tracking-tight">Cloud Native</h3>
               <p className="text-gray-400">Connect with 500+ cloud services and APIs out of the box.</p>
             </div>
             <div className="relative bg-[#0f0f11] border border-indigo-500/30 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-teal-500 before:to-cyan-600 before:blur-3xl before:opacity-30">
               <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(20,184,166,0.6)]">
+                <CogIcon className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 tracking-tight text-teal-400 drop-shadow-[0_0_10px_rgba(20,184,166,0.6)]">Smart Automation</h3>
+              <p className="text-gray-400">Real-time insights and performance monitoring for all your workflows.</p>
+            </div>
+            <div className="relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-30">
+              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(249,115,22,0.6)]">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2 tracking-tight text-teal-400 drop-shadow-[0_0_10px_rgba(20,184,166,0.6)]">Smart Analytics</h3>
-              <p className="text-gray-400">Real-time insights and performance monitoring for all your workflows.</p>
+              <h3 className="text-xl font-semibold mb-2 tracking-tight">Real-time Analytics</h3>
+              <p className="text-gray-400">Monitor performance with live dashboards and detailed reports.</p>
+            </div>
+            <div className="relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-30">
+              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(34,197,94,0.6)]">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2 tracking-tight">Cost Optimization</h3>
+              <p className="text-gray-400">Reduce cloud costs by up to 40% with intelligent resource management.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-24">
+      <section className="py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Trusted by Teams Worldwide</h2>
@@ -146,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 bg-gradient-to-b from-[#0f0f11] to-[#0c0c0e] relative">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-[#0f0f11] to-[#0c0c0e] relative">
         <div className="absolute w-96 h-96 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full blur-3xl opacity-10 -z-10 top-1/3 right-1/4"></div>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -354,6 +377,109 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Newsletter Popup */}
+      {showNewsletter && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#0f0f11] border border-white/20 rounded-2xl p-8 max-w-md w-full relative">
+            <button 
+              onClick={() => setShowNewsletter(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white"
+            >
+              <XMarkIcon className="w-6 h-6" />
+            </button>
+            <h3 className="text-2xl font-bold mb-4">Stay Updated! 🚀</h3>
+            <p className="text-gray-400 mb-6">Get the latest updates on cloud automation and exclusive tips.</p>
+            <div className="flex gap-2">
+              <input 
+                type="email" 
+                placeholder="Enter your email"
+                className="flex-1 bg-white/5 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-gray-400"
+              />
+              <button className="bg-gradient-to-r from-indigo-500 to-purple-600 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Video Demo Modal */}
+      {showVideoModal && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-[#0f0f11] border border-white/20 rounded-2xl p-6 max-w-4xl w-full relative">
+            <button 
+              onClick={() => setShowVideoModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-white z-10"
+            >
+              <XMarkIcon className="w-6 h-6" />
+            </button>
+            <div className="aspect-video bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-xl flex items-center justify-center">
+              <div className="text-center">
+                <PlayIcon className="w-16 h-16 text-white mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Demo Video</h3>
+                <p className="text-gray-400">See SkySync in action - 2 minute overview</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Cookie Consent */}
+      {showCookies && (
+        <div className="fixed bottom-4 left-4 right-4 bg-[#0f0f11] border border-white/20 rounded-xl p-4 z-40 max-w-md mx-auto">
+          <p className="text-sm text-gray-300 mb-3">
+            We use cookies to enhance your experience. By continuing, you agree to our cookie policy.
+          </p>
+          <div className="flex gap-2">
+            <button 
+              onClick={() => setShowCookies(false)}
+              className="bg-gradient-to-r from-indigo-500 to-purple-600 px-4 py-2 rounded-lg text-sm hover:opacity-90 transition-opacity"
+            >
+              Accept
+            </button>
+            <button 
+              onClick={() => setShowCookies(false)}
+              className="border border-white/20 px-4 py-2 rounded-lg text-sm hover:bg-white/10 transition-colors"
+            >
+              Decline
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Live Chat Widget */}
+      <div className="fixed bottom-6 right-6 z-40">
+        {showChat ? (
+          <div className="bg-[#0f0f11] border border-white/20 rounded-2xl p-4 w-80 mb-4">
+            <div className="flex justify-between items-center mb-4">
+              <h4 className="font-semibold">Live Support</h4>
+              <button onClick={() => setShowChat(false)}>
+                <XMarkIcon className="w-5 h-5 text-gray-400" />
+              </button>
+            </div>
+            <div className="space-y-3 mb-4">
+              <div className="bg-white/5 rounded-lg p-3">
+                <p className="text-sm text-gray-300">Hi! How can we help you today?</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <input 
+                type="text" 
+                placeholder="Type your message..."
+                className="flex-1 bg-white/5 border border-white/20 rounded-lg px-3 py-2 text-sm"
+              />
+              <button className="bg-indigo-500 px-3 py-2 rounded-lg text-sm">Send</button>
+            </div>
+          </div>
+        ) : null}
+        <button 
+          onClick={() => setShowChat(!showChat)}
+          className="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
+        >
+          <ChatBubbleLeftRightIcon className="w-6 h-6 text-white" />
+        </button>
+      </div>
     </div>
   );
 }
