@@ -17,9 +17,13 @@ export default function Home() {
     <div className="min-h-screen bg-[#0f0f11] text-white font-sans">
       {/* Hero Section */}
       <section className="relative py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.4),transparent)]"></div>
-        <div className="absolute w-72 h-72 bg-gradient-to-br from-indigo-500 to-purple-700 rounded-full blur-3xl opacity-20 -z-10 top-20 left-10"></div>
-        <div className="absolute w-96 h-96 bg-gradient-to-br from-violet-600 to-fuchsia-600 rounded-full blur-3xl opacity-15 -z-10 bottom-10 right-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f0f11] via-[#151517] to-[#0f0f11]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.3),transparent_50%)] opacity-60"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(168,85,247,0.2),transparent_50%)]"></div>
+        <div className="absolute w-96 h-96 bg-gradient-to-br from-indigo-500 via-purple-600 to-fuchsia-600 rounded-full blur-3xl opacity-25 -z-10 top-10 left-20 animate-pulse"></div>
+        <div className="absolute w-80 h-80 bg-gradient-to-br from-violet-600 via-pink-500 to-fuchsia-600 rounded-full blur-3xl opacity-20 -z-10 bottom-20 right-20 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute w-64 h-64 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full blur-3xl opacity-15 -z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(99,102,241,0.1)_50%,transparent_70%)] opacity-30"></div>
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="text-center space-y-8 transform hover:translate-y-1 transition-all duration-300">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance drop-shadow-[0_0_20px_rgba(99,102,241,0.3)]">
@@ -57,26 +61,26 @@ export default function Home() {
             <p className="text-gray-400 text-lg text-balance">Everything you need to automate and optimize your cloud infrastructure</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-30">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)]">
-                <BoltIcon className="w-6 h-6 text-white" />
+            <div className="group relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(99,102,241,0.25)] transition-all duration-500 ease-out hover:scale-[1.03] hover:border-indigo-500/30 before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-0 hover:before:opacity-40 before:transition-opacity before:duration-500">
+              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)] group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                <BoltIcon className="w-6 h-6 text-white group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] transition-all duration-300" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 tracking-tight">Lightning Fast</h3>
-              <p className="text-gray-400">Execute workflows in milliseconds with our optimized cloud infrastructure.</p>
+              <h3 className="text-xl font-semibold mb-2 tracking-tight group-hover:text-indigo-300 transition-colors duration-300">Lightning Fast</h3>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Execute workflows in milliseconds with our optimized cloud infrastructure.</p>
             </div>
-            <div className="relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-30">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)]">
-                <ShieldCheckIcon className="w-6 h-6 text-white" />
+            <div className="group relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(99,102,241,0.25)] transition-all duration-500 ease-out hover:scale-[1.03] hover:border-indigo-500/30 before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-0 hover:before:opacity-40 before:transition-opacity before:duration-500">
+              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)] group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                <ShieldCheckIcon className="w-6 h-6 text-white group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] transition-all duration-300" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 tracking-tight">Enterprise Security</h3>
-              <p className="text-gray-400">Bank-level encryption and compliance with SOC 2, GDPR, and HIPAA standards.</p>
+              <h3 className="text-xl font-semibold mb-2 tracking-tight group-hover:text-indigo-300 transition-colors duration-300">Enterprise Security</h3>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Bank-level encryption and compliance with SOC 2, GDPR, and HIPAA standards.</p>
             </div>
-            <div className="relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-30">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)]">
-                <CloudIcon className="w-6 h-6 text-white" />
+            <div className="group relative bg-[#0f0f11] border border-white/10 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(99,102,241,0.25)] transition-all duration-500 ease-out hover:scale-[1.03] hover:border-indigo-500/30 before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-violet-600 before:to-fuchsia-600 before:blur-3xl before:opacity-0 hover:before:opacity-40 before:transition-opacity before:duration-500">
+              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 via-purple-600 to-fuchsia-600 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(99,102,241,0.6)] group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                <CloudIcon className="w-6 h-6 text-white group-hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] transition-all duration-300" />
               </div>
-              <h3 className="text-xl font-semibold mb-2 tracking-tight">Cloud Native</h3>
-              <p className="text-gray-400">Connect with 500+ cloud services and APIs out of the box.</p>
+              <h3 className="text-xl font-semibold mb-2 tracking-tight group-hover:text-indigo-300 transition-colors duration-300">Cloud Native</h3>
+              <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Connect with 500+ cloud services and APIs out of the box.</p>
             </div>
             <div className="relative bg-[#0f0f11] border border-indigo-500/30 rounded-2xl p-6 shadow-[0_8px_30px_rgba(255,255,255,0.05)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(99,102,241,0.15)] transition-transform duration-300 ease-out hover:rotate-1 hover:scale-[1.02] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-r before:from-teal-500 before:to-cyan-600 before:blur-3xl before:opacity-30">
               <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl mb-4 flex items-center justify-center drop-shadow-[0_0_10px_rgba(20,184,166,0.6)]">
